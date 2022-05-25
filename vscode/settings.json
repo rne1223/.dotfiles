@@ -1,0 +1,70 @@
+{
+    //Telemetry
+    "redhat.telemetry.enabled": false,
+    // Editor settings
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs":"active",
+    "window.zoomLevel": 1,
+    // Carbon Settings
+    "carbon.dropShadow": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "remote.SSH.remotePlatform": {
+        "traefik": "linux"
+    },
+    "workbench.startupEditor": "none",
+    // Emmet settings to be use inside react components
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    // Vim Settings
+    "vim.foldfix": true,
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "vspacecode.space"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "vspacecode.space"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ],
+    "editor.minimap.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "yaml.validate": false,
+}
