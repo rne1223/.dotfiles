@@ -69,6 +69,15 @@ function updateVscode ($zipFilePath) {
     Remove-Item current_old
 }
 
+# Function to be use with fd to find files with a time input 
+function fdt([int]$time=1){
+
+	$currentTime = Get-Date 
+	$elapsedTime = $currentTime.AddHours(-$time) ## Subtract the value of $lapsed from $currentTime
+	$finalTime= $elapsedTime.ToString("yyyy-MM-dd") 
+	fd -d 1 --newer $finalTime
+} 
+
 #region conda initialize
 # !! Contents within this block are managed by 'conda init' !!
  If (Test-Path "C:\Users\rne1223\scoop\apps\miniconda3\current\Scripts\conda.exe") {
