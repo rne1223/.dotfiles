@@ -62,7 +62,7 @@ function playm($Volume = "50")
 }
 
 function kills(){
-	stop-process -Name "$(get-process | fzf | awk '{ print $NF}')"
+	sudo stop-process -Name "$(get-process | fzf | awk '{ print $NF}')" -Force
 }
 
 
@@ -112,10 +112,18 @@ function fdt([string]$time="1hour"){
 	fd -d 1 --newer "$time"
 } 
 
-function cb (){
-	$filepath = Get-Location | set-clipboard
-	return $filepath
+function cb ($filename){
+	$filepath = Get-Location 
+
+    if($filename) {
+        $filepath = "$filepath\$filename"
+        Set-Clipboard "'$filepath'"
+        return
+    }
+    
+    Set-Clipboard "'$filepath'"
 } 
+
 
 function cbf ($file) {
 
@@ -130,6 +138,25 @@ function dar() {
     Start-Process "D:\Videos\DavinciProjects\Project.drb"
 }
 
+
+# Installs fonts into system
+function add-Font($ext){
+    $directoryPath = Get-Location
+    $files = Get-ChildItem -Path $directoryPath -Filter $ext
+
+    $fontsFolder = (New-Object -ComObject Shell.Application).Namespace(0x14)
+
+    foreach($file in $files){
+        If (Test-Path $file) {
+            $font = $fontsFolder.ParseName($file)
+            $fontsFolder.CopyHere($font)
+            Write-Host "Font installed successfully."
+        }
+        else {
+            Write-Host "Font file not found."
+        }
+    }
+}
 
 
 
